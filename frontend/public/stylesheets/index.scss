@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'common.scss';
+
+.main {
+  display: flex;
+  margin: auto;
+  width: 80vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25vw;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 0.2em;
+  }
+
+  .tagline {
+    font-size: 60%;
+  }
+
+  .highlight {
+    font-size: 50%;
+    margin: 0;
+    text-align: left;
+
+    i {
+      color: $pink;
+    }
+  }
+}
+
+.call-to-action {
+  width: 35vw;
+
+  p {
+    color: $grey;
+
+    &:first-child {
+      font-weight: 900;
+      font-size: 160%;
+      margin: 0 0 0.3em 0;
+    }
+  }
+}

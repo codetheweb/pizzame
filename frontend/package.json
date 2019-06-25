@@ -1,0 +1,27 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "xo",
+    "watch": "DEBUG=* npx nodemon node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
+    "express": "~4.16.1",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "node-sass-middleware": "0.11.0"
+  },
+  "xo": {
+    "space": true
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "xo": "^0.24.0"
+  }
+}

@@ -1,0 +1,58 @@
+@import 'variables.scss';
+
+html, body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background-color: $black;
+  color: white;
+  font-size: calc(1em + 1vw);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+}
+
+body {
+  background-image: url('/images/shape.svg');
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: 120%;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  background-color: $white;
+  color: $black;
+  padding: 0 0.5em;
+}
+
+.glow {
+  background-color: white;
+  box-shadow: 0px 0px 40px 0px $pink;
+  border-radius: $border-radius;
+}
+
+.disclaimer {
+  color: $grey;
+  font-size: 50%;
+}
+
+.button {
+  background-color: $pink;
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  display: block;
+  transition: all 0.1s;
+  border: none;
+  outline: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+
+  &:hover {
+    transform: translateY(3px);
+  }
+}

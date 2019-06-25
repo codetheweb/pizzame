@@ -1,0 +1,59 @@
+@import 'common.scss';
+
+.main {
+  display: flex;
+  margin: auto;
+  width: 80vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.info {
+  width: 30vw;
+
+  h1 {
+    font-size: 100%;
+    margin: auto;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.link-form {
+  max-width: 25vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    img {
+      max-height: 3em;
+      margin-bottom: 1em;
+    }
+
+    input {
+      display: block;
+      margin-bottom: 1em;
+      font-size: 0.5em;
+      border-radius: $border-radius;
+      border-color: black;
+      padding: 0.4em;
+      outline: none;
+    }
+
+    margin-bottom: 1em;
+  }
+
+  .button {
+    width: 25vw;
+  }
+}
