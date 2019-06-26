@@ -8,6 +8,8 @@
     "watch": "DEBUG=* npx nodemon node ./bin/www"
   },
   "dependencies": {
+    "aws-param-store": "^3.0.0",
+    "aws-sdk": "^2.482.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.0.0",
@@ -15,11 +17,20 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "node-ipc": "^9.1.1",
     "node-sass-middleware": "0.11.0"
   },
   "xo": {
-    "space": true
-  },
+   "space": true,
+   "rules": {
+     "new-cap": [
+       "off"
+     ],
+     "camelcase": [
+       "off"
+     ]
+   }
+ },
   "devDependencies": {
     "nodemon": "^1.19.1",
     "xo": "^0.24.0"

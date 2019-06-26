@@ -25,6 +25,7 @@ h1 {
 
 .glow {
   background-color: white;
+  color: black;
   box-shadow: 0px 0px 40px 0px #FF2987;
   border-radius: 5px; }
 

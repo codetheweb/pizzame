@@ -4,18 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "xo"
+    "test": "xo",
+    "watch-chatbot": "nodemon node chatbot.js"
   },
   "author": "Max Isom <codetheweb@icloud.com> (https://maxisom.me)",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1",
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "got": "^9.6.0",
+    "node-ipc": "^9.1.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.8.12",
+    "uuid": "^3.3.2"
   },
   "xo": {
     "space": true
   },
   "devDependencies": {
+    "nodemon": "^1.19.1",
     "xo": "^0.24.0"
   }
 }

@@ -5,11 +5,17 @@
   </p>
 </div>
 
-<form class="link-form">
+<form class="link-form" method="post" action="/link/{{linkToken}}">
   <div class="glow">
+    {{#if failed}}
+      {{failed}}
+    {{/if}}
+    {{#if succeeded}}
+      {{succeeded}}
+    {{/if}}
     <img src="/images/domino.svg" />
-    <input type="email" placeholder="email" />
-    <input type="password" placeholder="password" />
+    <input type="email" placeholder="email" name="email"/>
+    <input type="password" placeholder="password" name="password"/>
   </div>
   <input type="submit" value="link account" class="glow button"/>
 </form>
