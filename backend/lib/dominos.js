@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-
 const got = require('got');
+const jwt = require('jsonwebtoken');
 
 const login = async ({email, password}) => {
   const params = {
@@ -17,4 +17,45 @@ const login = async ({email, password}) => {
   return JSON.parse(res.body);
 };
 
-module.exports = {login};
+const getEasyOrders = async ({accessToken}) => {
+  const {CustomerID} = jwt.decode(accessToken);
+
+  const res = await got.get(`https://order.dominos.com/power/customer/${CustomerID}/order`, {
+    query: {
+      limit: 5,
+      lang: 'en'
+    },
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    },
+    json: true
+  });
+
+  const easyOrders = [];
+
+  res.body.customerOrders.forEach(order => {
+    if (order.easyOrder) {
+      easyOrders.push(order);
+    }
+  });
+
+  return easyOrders;
+};
+
+const getOrderStatus = async ({phoneNumber}) => {
+  const res = await got('https://tracker.dominos.com/tracker-presentation-service/v2/orders', {
+    query: {
+      phonenumber: phoneNumber,
+      _: new Date().getTime()
+    },
+    headers: {
+      'DPZ-MARKET': 'UNITED_STATES',
+      'DPZ-LANGUAGE': 'en'
+    },
+    json: true
+  });
+
+  return res.body;
+};
+
+module.exports = {login, getEasyOrders, getOrderStatus};

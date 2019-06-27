@@ -6,8 +6,7 @@ module.exports = (sequelize, type) => {
       primaryKey: true
     },
     accessToken: type.STRING(800),
-    orderId: type.INTEGER,
-    storeId: type.INTEGER,
+    phoneNumber: type.STRING,
     isOrderInProgress: {
       type: type.BOOLEAN,
       defaultValue: false
