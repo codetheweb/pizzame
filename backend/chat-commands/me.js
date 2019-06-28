@@ -6,7 +6,8 @@ const {execute: link} = require('./link');
 
 module.exports = {
   name: 'me',
-  description: 'Order pizza!',
+  description: 'Order your default Easy Order. 😋',
+  usage: '[*carryout* or *delivery*]',
 
   async execute(message, args) {
     if (args[0] && !['carryout', 'delivery'].includes(args[0])) {

@@ -3,7 +3,7 @@ const {User} = require('../lib/models');
 
 module.exports = {
   name: 'link',
-  description: 'Link your Domino\'s account with PizzaMe.',
+  description: 'Link your Domino\'s account with PizzaMe. 🔗',
 
   async execute(message, _) {
     const discordId = message.author.id;

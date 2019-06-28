@@ -4,7 +4,7 @@ const {execute: link} = require('./link');
 
 module.exports = {
   name: 'status',
-  description: 'Get the status of your in-progress order.',
+  description: 'Get the status of your in-progress order. 🧾',
 
   async execute(message, _) {
     const discordId = message.author.id;
