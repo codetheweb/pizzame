@@ -32,6 +32,12 @@ module.exports = {
 
     const [defaultOrder] = orders;
 
+    if (args[0] === 'carryout') {
+      defaultOrder.order.ServiceMethod = 'Carryout'
+    } else if (args[0] === 'delivery') {
+      defaultOrder.order.ServiceMethod = 'Delivery';
+    }
+
     // Give feedback on what will be ordered
     const response = new Discord.RichEmbed()
       .setColor('#FF2987')
