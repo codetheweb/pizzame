@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const {User} = require('../lib/models');
-const {getEasyOrders} = require('../lib/dominos');
+const Dominos = require('../lib/dominos');
+const {orderToEnglish} = require('../lib/utils');
 const {execute: link} = require('./link');
 
 module.exports = {
@@ -21,38 +22,15 @@ module.exports = {
     }
 
     // Get user's easy orders
-    const orders = await getEasyOrders({accessToken: user.accessToken});
-
-    console.log(orders);
+    const dominos = new Dominos(user);
+    const orders = await dominos.getEasyOrders({accessToken: user.accessToken});
 
     const response = new Discord.RichEmbed()
       .setColor('#FF2987')
       .setTitle('Available Easy Orders:');
 
     orders.forEach(order => {
-      let description = '';
-
-      order.order.Products.forEach(product => {
-        description += ' - ' + product.name;
-
-        if (product.descriptions[0] && product.descriptions[0].value) {
-          description += ' with ' + product.descriptions[0].value;
-        }
-
-        description += '\n';
-      });
-
-      description += '\n';
-
-      if (order.order.ServiceMethod === 'Delivery') {
-        description += `**Delivering** to your address starting with **${order.order.Address.StreetNumber}**, `;
-      } else {
-        description += `Ordering **carryout** from the store at ${order.store.address.Street}, `;
-      }
-
-      description += `paying **$${order.order.Amounts.Payment}** with your ${order.order.Payments[0].CardType}.\n`;
-
-      description += `Ready in **${order.order.EstimatedWaitMinutes}** minutes.`;
+      const description = orderToEnglish(order);
 
       response.addField(order.easyOrderNickName, description);
     });

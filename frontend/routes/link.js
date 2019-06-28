@@ -4,6 +4,7 @@ const Dominos = require('../../backend/lib/dominos');
 const {User} = require('../../backend/lib/models');
 
 const router = express.Router();
+const dominos = new Dominos();
 
 // GET link account page
 router.get('/:linkToken', (req, res, _) => {
@@ -17,7 +18,7 @@ router.post('/:linkToken', async (req, res, _) => {
   // Attempt to log into Domino's
   let access_token;
   try {
-    ({access_token} = await Dominos.login({email, password}));
+    ({access_token} = await dominos.login({email, password}));
   } catch (_) {
     // Bad login
     return res.render('linkToken', {title: 'Link Failed', page: 'link', failed: 'failed', linkToken: req.params.linkToken});

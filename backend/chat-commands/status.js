@@ -1,5 +1,5 @@
 const {User} = require('../lib/models');
-const {getOrderStatus} = require('../lib/dominos');
+const Dominos = require('../lib/dominos');
 const {execute: link} = require('./link');
 
 module.exports = {
@@ -24,7 +24,12 @@ module.exports = {
     }
 
     // Get order status
-    const orderStatus = await getOrderStatus({phoneNumber: user.phoneNumber});
+    const dominos = new Dominos(user);
+    const orderStatus = await dominos.getOrderStatus({phoneNumber: user.phoneNumber});
+
+    if (!orderStatus) {
+      return message.channel.send('There isn\'t currently an order in progress.');
+    }
 
     return message.channel.send(JSON.stringify(orderStatus));
   }
